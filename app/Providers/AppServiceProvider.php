@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Services\Contracts\RoleService;
+use App\Services\Contracts\UserService;
+use App\Services\Impls\RoleServiceImpl;
+use App\Services\Impls\UserServiceImpl;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(UserService::class, UserServiceImpl::class);
+        $this->app->singleton(RoleService::class, RoleServiceImpl::class);
     }
 
     /**
