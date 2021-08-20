@@ -20,7 +20,13 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'avatar',
+        'gender',
         'password',
+        'bio',
+        'phone',
+        'status',
+        'role'
     ];
 
     /**
@@ -41,4 +47,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The attributes of date time
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
+
+    /**
+     * Defined relationship one to one
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function roles(){
+        return $this->hasOne(Role::class,'id','role');
+    }
 }
