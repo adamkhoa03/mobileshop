@@ -42,7 +42,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
 
-                                        <form action="" method="post"
+                                        <form action="{{route('admin.user.store')}}" method="post"
                                               enctype="multipart/form-data">
                                             @csrf
                                             <div class="modal-header">

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Constants\App;
+use App\Http\Requests\StoreUserRequest;
 use App\Services\Contracts\RoleService;
 use App\Services\Contracts\UserService;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class UserController extends BaseController
@@ -53,13 +56,15 @@ class UserController extends BaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreUserRequest  $request
      *
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    final public function store(StoreUserRequest $request):RedirectResponse
     {
-        //
+        $slugOfImageName = $request->input('name');
+        $image = $this->getImageUploadName($request, $slugOfImageName, App::PATH_OF_AVATAR_UPLOAD);
+        return $this->userService->create($request, $image);
     }
 
     /**
