@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['as'=>'admin'], function (){
+Route::group(['as'=>'admin.'], function (){
    Route::resource('user', UserController::class);
 });
