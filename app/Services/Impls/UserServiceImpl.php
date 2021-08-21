@@ -31,9 +31,19 @@ class UserServiceImpl implements UserService
      *
      * @return object
      */
-    final public function getListUser(): object
+    final public function getListActiveUser(): object
     {
-        return $this->repo->getListUsersOrderByDesc();
+        return $this->repo->getActiveUsersOrderByDesc();
+    }
+
+    /**
+     * Handle get list deactivated users
+     *
+     * @return object
+     */
+    final public function getListDeactivatedUser(): object
+    {
+       return $this->repo->getDeactivatedUsersOrderByDesc();
     }
 
     /**
@@ -55,5 +65,29 @@ class UserServiceImpl implements UserService
 
         $this->repo->create($users);
         return redirect()->back();
+    }
+
+    /**
+     * Handle logic for get user info by id
+     *
+     * @param  int  $user_id
+     *
+     * @return object
+     */
+    final public function getUserInfoById(int $user_id): object
+    {
+        return $this->repo->find($user_id);
+    }
+
+    /**
+     * Update user info from request by id
+     *
+     * @param  int     $user_id
+     * @param  object  $request
+     */
+    final public function updateUserInfoById(int $user_id, object $request): void
+    {
+        $data = $request->all();
+        $this->repo->findAndUpdate($user_id, $data);
     }
 }

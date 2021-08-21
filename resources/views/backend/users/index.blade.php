@@ -1,11 +1,10 @@
 @extends('backend.layout.layout')
 @section('title', 'Control Users')
-@section('user.active')
+@section('user.'.$status)
     class="active"
 @endsection
 @section('main')
     <div class="content">
-
         <div class="container-fluid">
 
             <div class="row">
@@ -163,7 +162,6 @@
                                     <tr>
                                         <th style="min-width:300px">User details</th>
                                         <th style="width:120px">Role</th>
-                                        <th style="width: 100px">Status</th>
                                         <th style="min-width:110px;">Actions</th>
                                     </tr>
                                     </thead>
@@ -185,15 +183,9 @@
                                             </td>
 
                                             <td>{{$user->roles->title}}</td>
-                                            <td><a href="">@if($user->status === 1)
-                                                        <span class="font-weight-bold text-primary">Activating</span>
-                                                    @else
-                                                        <span class="text-danger font-weight-bold"> Deactivated </span>
-                                                    @endif
-                                                </a></td>
 
                                             <td>
-                                                <a href=""
+                                                <a href="{{route('admin.user.edit',$user->id)}}"
                                                    class="btn btn-primary btn-sm btn-block"><i
                                                         class="far fa-edit"></i> Edit</a>
                                                 <form method="post"

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['as'=>'admin.'], function (){
-   Route::resource('user', UserController::class);
+Route::group(['as' => 'admin.'], function () {
+    Route::get('user/deactivated', [UserController::class, 'showListDeactivateUsers'])->name('user.deactivated');
+    Route::resource('user', UserController::class);
 });

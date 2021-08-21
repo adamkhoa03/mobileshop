@@ -17,7 +17,14 @@ interface UserService
      *
      * @return object
      */
-    public function getListUser(): object;
+    public function getListActiveUser(): object;
+
+    /**
+     * Get list deactivated users
+     *
+     * @return object
+     */
+    public function getListDeactivatedUser() :object;
 
     /**
      * Handle users creation
@@ -28,4 +35,21 @@ interface UserService
      * @return RedirectResponse
      */
     public function create(StoreUserRequest $request, ?string $image): RedirectResponse;
+
+    /**
+     * Get user information by id
+     *
+     * @param  int  $user_id
+     *
+     * @return object
+     */
+    public function getUserInfoById(int $user_id): object;
+
+    /**
+     * Update user info by id
+     *
+     * @param  int     $user_id
+     * @param  object  $request
+     */
+    public function updateUserInfoById(int $user_id, object $request): void;
 }
