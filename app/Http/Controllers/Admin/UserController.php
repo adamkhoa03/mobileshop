@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Constants\App;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Services\Contracts\RoleService;
 use App\Services\Contracts\UserService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 
 class UserController extends BaseController
 {
@@ -61,7 +61,7 @@ class UserController extends BaseController
      *
      * @return RedirectResponse
      */
-    final public function store(StoreUserRequest $request):RedirectResponse
+    final public function store(StoreUserRequest $request): RedirectResponse
     {
         $slugOfImageName = $request->input('name');
         $image = $this->getImageUploadName($request, $slugOfImageName, App::PATH_OF_AVATAR_UPLOAD);
@@ -91,20 +91,21 @@ class UserController extends BaseController
     {
         $roles = $this->roleService->getListRoles();
         $user = $this->userService->getUserInfoById($user_id);
-        return view('backend.users.edit', compact('user','roles'));
+        return view('backend.users.edit', compact('user', 'roles'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int                       $id
+     * @param  UpdateUserRequest  $request
+     * @param  int                $user_id
      *
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    final public function update(UpdateUserRequest $request, int $user_id): RedirectResponse
     {
-        //
+        $this->userService->updateUserInfoById($user_id, $request);
+        return redirect()->route('admin.user.index')->with('success', 'Update user successfully!');
     }
 
     /**

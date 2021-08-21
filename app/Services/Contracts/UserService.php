@@ -37,4 +37,12 @@ interface UserService
      * @return object
      */
     public function getUserInfoById(int $user_id): object;
+
+    /**
+     * Update user info by id
+     *
+     * @param  int     $user_id
+     * @param  object  $request
+     */
+    public function updateUserInfoById(int $user_id, object $request): void;
 }

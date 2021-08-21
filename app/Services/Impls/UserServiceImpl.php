@@ -68,4 +68,16 @@ class UserServiceImpl implements UserService
     {
         return $this->repo->find($user_id);
     }
+
+    /**
+     * Update user info from request by id
+     *
+     * @param  int     $user_id
+     * @param  object  $request
+     */
+    final public function updateUserInfoById(int $user_id, object $request): void
+    {
+        $data = $request->all();
+        $this->repo->findAndUpdate($user_id, $data);
+    }
 }

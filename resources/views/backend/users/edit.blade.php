@@ -22,7 +22,9 @@
                 </div>
             </div>
             <!-- end row -->
-
+            @if($errors->first())
+                <div class="alert alert-danger">{{$errors->first()}}</div>
+            @endif
             <div class="row">
 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
