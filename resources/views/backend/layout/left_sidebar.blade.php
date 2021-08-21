@@ -19,14 +19,14 @@
                         <span class="menu-arrow"></span>
                     </a>
                     <ul class="list-unstyled">
-                        <li @yield('user.'.\App\Constants\App::USER_ACTIVE_STATUS) >
-                            <a @yield('user.'.\App\Constants\App::USER_ACTIVE_STATUS)
+                        <li @yield('user.'.__('global.status.activated')) >
+                            <a @yield('user.'.__('global.status.activated'))
                                href="{{route('admin.user.index')}}">
-                                <span> Activating </span>
+                                <span> Activated </span>
                             </a>
                         </li>
-                        <li @yield('user.'.\App\Constants\App::USER_DEACTIVATE_STATUS)>
-                            <a @yield('user.'.\App\Constants\App::USER_DEACTIVATE_STATUS)
+                        <li @yield('user.'.__('global.status.deactivated'))>
+                            <a @yield('user.'.__('global.status.deactivated'))
                                href="{{route('admin.user.deactivated')}}"><span> Deactivated </span></a>
                         </li>
                     </ul>
