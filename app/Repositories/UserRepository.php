@@ -15,9 +15,21 @@ class UserRepository extends EloquentRepository
      *
      * @return object
      */
-    final public function getListUsersOrderByDesc(): object
+    final public function getActiveUsersOrderByDesc(): object
     {
-        return $this->model
+        return $this->model->where('status', 1)
+            ->orderBy('id', 'desc')
+            ->paginate(App::DEFAULT_PAGINATE);
+    }
+
+    /**
+     * Get list deactivate users and order by desc from DB
+     *
+     * @return object
+     */
+    final public function getDeactivatedUsersOrderByDesc(): object
+    {
+        return $this->model->where('status', 0)
             ->orderBy('id', 'desc')
             ->paginate(App::DEFAULT_PAGINATE);
     }

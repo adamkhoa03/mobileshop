@@ -17,7 +17,14 @@ interface UserService
      *
      * @return object
      */
-    public function getListUser(): object;
+    public function getListActiveUser(): object;
+
+    /**
+     * Get list deactivated users
+     *
+     * @return object
+     */
+    public function getListDeactivatedUser() :object;
 
     /**
      * Handle users creation

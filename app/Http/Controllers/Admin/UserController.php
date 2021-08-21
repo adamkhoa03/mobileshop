@@ -37,10 +37,11 @@ class UserController extends BaseController
     final public function getDataTable(): array
     {
         $roles = $this->roleService->getListRoles();
-        $users = $this->userService->getListUser();
+        $users = $this->userService->getListActiveUser();
         return [
             'roles' => $roles,
             'users' => $users,
+            'status' => App::USER_ACTIVE_STATUS
         ];
     }
 
@@ -52,6 +53,19 @@ class UserController extends BaseController
     final public function getIndexPageName(): string
     {
         return 'backend.users.index';
+    }
+
+    /**
+     * Show deactivated users
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    final public function showListDeactivateUsers(): View
+    {
+        $roles = $this->roleService->getListRoles();
+        $users = $this->userService->getListDeactivatedUser();
+        $status = App::USER_DEACTIVATE_STATUS;
+        return view($this->getIndexPageName(), compact('users', 'roles', 'status'));
     }
 
     /**

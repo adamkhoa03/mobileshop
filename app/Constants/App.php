@@ -14,4 +14,8 @@ class App
 
     //Default path image
     public const PATH_OF_AVATAR_UPLOAD = 'backend/images/avatars';
+
+    //Default users status
+    public const USER_ACTIVE_STATUS = 1;
+    public const USER_DEACTIVATE_STATUS = 0;
 }
