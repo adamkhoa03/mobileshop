@@ -6,6 +6,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Repositories\UserRepository;
 use App\Services\Contracts\UserService;
 use Illuminate\Http\RedirectResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * UserServiceImpl, handle logic for users flow
@@ -43,7 +44,7 @@ class UserServiceImpl implements UserService
      */
     final public function getListDeactivatedUser(): object
     {
-       return $this->repo->getDeactivatedUsersOrderByDesc();
+        return $this->repo->getDeactivatedUsersOrderByDesc();
     }
 
     /**
@@ -89,5 +90,21 @@ class UserServiceImpl implements UserService
     {
         $data = $request->all();
         $this->repo->findAndUpdate($user_id, $data);
+    }
+
+    /**
+     * Handle logic for destroy user from DB by ID
+     *
+     * @param  int  $user_id
+     *
+     * @throws \Exception
+     */
+    final public function destroyUserById(int $user_id): void
+    {
+        if (!$this->getUserInfoById($user_id)->exists()) {
+            throw new NotFoundHttpException(__('global.http_exception.not_found',
+                ['attribute' => __('global.users.user')]));
+        }
+        $this->repo->findAndDelete($user_id);
     }
 }

@@ -83,18 +83,6 @@ class UserController extends BaseController
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $user_id
@@ -119,18 +107,21 @@ class UserController extends BaseController
     final public function update(UpdateUserRequest $request, int $user_id): RedirectResponse
     {
         $this->userService->updateUserInfoById($user_id, $request);
-        return redirect()->route('admin.user.index')->with('success', __('alert.update.success'));
+        return redirect()->route('admin.user.index')
+            ->with('success', __('alert.update.success', ['attribute' => __('global.users.user')]));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $user_id
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy($id)
+    final public function destroy(int $user_id): RedirectResponse
     {
-        //
+        $this->userService->destroyUserById($user_id);
+        return redirect()->route('admin.user.index')
+            ->with('success', __('alert.delete.success', ['attribute' => __('global.users.user')]));
     }
 }
