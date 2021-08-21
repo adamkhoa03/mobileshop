@@ -41,7 +41,7 @@ class UserController extends BaseController
         return [
             'roles' => $roles,
             'users' => $users,
-            'status' => App::USER_ACTIVE_STATUS
+            'users_status' => __('global.status.activated')
         ];
     }
 
@@ -64,8 +64,8 @@ class UserController extends BaseController
     {
         $roles = $this->roleService->getListRoles();
         $users = $this->userService->getListDeactivatedUser();
-        $status = App::USER_DEACTIVATE_STATUS;
-        return view($this->getIndexPageName(), compact('users', 'roles', 'status'));
+        $users_status = __('global.status.deactivated');
+        return view($this->getIndexPageName(), compact('users', 'roles', 'users_status'));
     }
 
     /**
