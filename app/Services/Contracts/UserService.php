@@ -24,7 +24,7 @@ interface UserService
      *
      * @return object
      */
-    public function getListDeactivatedUser() :object;
+    public function getListDeactivatedUser(): object;
 
     /**
      * Handle users creation
@@ -52,4 +52,11 @@ interface UserService
      * @param  object  $request
      */
     public function updateUserInfoById(int $user_id, object $request): void;
+
+    /**
+     * Handle destroy user by ID
+     *
+     * @param  int  $user_id
+     */
+    public function destroyUserById(int $user_id): void;
 }

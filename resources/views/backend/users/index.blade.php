@@ -189,10 +189,11 @@
                                                    class="btn btn-primary btn-sm btn-block"><i
                                                         class="far fa-edit"></i> Edit</a>
                                                 <form method="post"
-                                                      action="">
+                                                      action="{{route('admin.user.destroy',$user->id)}}">
                                                     @method('DELETE')
                                                     @csrf
-                                                    <button type="submit" class="btn btn-danger btn-sm btn-block
+                                                    <button onclick="return confirm('{{trans('global.areYouSure')}}')"
+                                                            type="submit" class="btn btn-danger btn-sm btn-block
                                                         mt-2"><i class="fas fa-trash"></i> Delete
                                                     </button>
 

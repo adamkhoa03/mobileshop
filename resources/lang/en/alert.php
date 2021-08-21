@@ -1,7 +1,11 @@
 <?php
 
 return [
-  'update'=>[
-      'success'=>'Updated successfully!'
-  ]
+    'update' => [
+        'success' => 'Updated :attribute Successfully!'
+    ],
+    'delete' => [
+        'success' => 'Deleted :attribute Successfully!'
+    ],
+
 ];
