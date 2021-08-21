@@ -28,4 +28,13 @@ interface UserService
      * @return RedirectResponse
      */
     public function create(StoreUserRequest $request, ?string $image): RedirectResponse;
+
+    /**
+     * Get user information by id
+     *
+     * @param  int  $user_id
+     *
+     * @return object
+     */
+    public function getUserInfoById(int $user_id): object;
 }

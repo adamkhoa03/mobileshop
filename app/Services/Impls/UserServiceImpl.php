@@ -56,4 +56,16 @@ class UserServiceImpl implements UserService
         $this->repo->create($users);
         return redirect()->back();
     }
+
+    /**
+     * Handle logic for get user info by id
+     *
+     * @param  int  $user_id
+     *
+     * @return object
+     */
+    final public function getUserInfoById(int $user_id): object
+    {
+        return $this->repo->find($user_id);
+    }
 }

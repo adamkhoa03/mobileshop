@@ -58,7 +58,7 @@
 
 <footer class="footer">
             <span class="text-right">
-                Copyright <a target="_blank" href="#">Company</a>
+                Contact me <a target="_blank" href="https://facebook.com/adamkhoa03">Minh Khoa</a>
             </span>
 </footer>
 

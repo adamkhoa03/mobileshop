@@ -6,6 +6,7 @@ use App\Constants\App;
 use App\Http\Requests\StoreUserRequest;
 use App\Services\Contracts\RoleService;
 use App\Services\Contracts\UserService;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -82,13 +83,15 @@ class UserController extends BaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $user_id
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
-    public function edit($id)
+    final public function edit(int $user_id): View
     {
-        //
+        $roles = $this->roleService->getListRoles();
+        $user = $this->userService->getUserInfoById($user_id);
+        return view('backend.users.edit', compact('user','roles'));
     }
 
     /**

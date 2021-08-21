@@ -193,7 +193,7 @@
                                                 </a></td>
 
                                             <td>
-                                                <a href=""
+                                                <a href="{{route('admin.user.edit',$user->id)}}"
                                                    class="btn btn-primary btn-sm btn-block"><i
                                                         class="far fa-edit"></i> Edit</a>
                                                 <form method="post"
