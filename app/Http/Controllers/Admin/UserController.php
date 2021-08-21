@@ -105,7 +105,7 @@ class UserController extends BaseController
     final public function update(UpdateUserRequest $request, int $user_id): RedirectResponse
     {
         $this->userService->updateUserInfoById($user_id, $request);
-        return redirect()->route('admin.user.index')->with('success', 'Update user successfully!');
+        return redirect()->route('admin.user.index')->with('success', __('alert.update.success'));
     }
 
     /**
