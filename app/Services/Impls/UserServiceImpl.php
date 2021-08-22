@@ -2,10 +2,12 @@
 
 namespace App\Services\Impls;
 
+use App\Constants\App;
 use App\Http\Requests\StoreUserRequest;
 use App\Repositories\UserRepository;
 use App\Services\Contracts\UserService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -76,8 +78,26 @@ class UserServiceImpl implements UserService
      */
     final public function updateUserInfoById(int $user_id, object $request): void
     {
-        $data = $request->all();
+        $data = $this->getClientRequestData($request);
         $this->repo->findAndUpdate($user_id, $data);
+    }
+
+    /**
+     * Get client request data
+     *
+     * @param  object  $request
+     *
+     * @return array
+     */
+    private function getClientRequestData(object $request): array
+    {
+        $password = $request->password;
+        if (blank($password)) {
+            $data = $request->all();
+        } else {
+            $data = array_merge($request->all(), ['password' => bcrypt($password)]);
+        }
+        return $data;
     }
 
     /**
@@ -106,5 +126,36 @@ class UserServiceImpl implements UserService
     final public function getUserInfoById(int $user_id): object
     {
         return $this->repo->find($user_id);
+    }
+
+    /**
+     * Handle update avatar for authorized user
+     *
+     * @param  string|null  $image
+     */
+    final public function updateAvatar(?string $image): void
+    {
+        $user = Auth::user();
+        $avatarFromDatabase = $user->avatar;
+        if (blank($image)) {
+            $image = $avatarFromDatabase;
+        } else {
+            $this->removeImageIfExist($avatarFromDatabase);
+        }
+
+        $this->repo->findAndUpdate($user->id, ['avatar' => $image]);
+    }
+
+    /**
+     * Remove image if exist
+     *
+     * @param  string|null  $avatarFromDatabase
+     */
+    private function removeImageIfExist(?string $avatarFromDatabase): void
+    {
+        if (filled($avatarFromDatabase) &&
+            file_exists(App::PATH_OF_AVATAR_UPLOAD.'/'.$avatarFromDatabase)) {
+            unlink(App::PATH_OF_AVATAR_UPLOAD.'/'.$avatarFromDatabase);
+        }
     }
 }

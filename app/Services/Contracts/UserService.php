@@ -59,4 +59,13 @@ interface UserService
      * @param  int  $user_id
      */
     public function destroyUserById(int $user_id): void;
+
+    /**
+     * Update avatar to DB after uploaded
+     *
+     * @param  string|null  $image
+     *
+     * @return mixed
+     */
+    public function updateAvatar(?string $image): void;
 }
