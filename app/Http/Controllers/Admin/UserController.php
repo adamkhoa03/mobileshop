@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Constants\App;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Services\Contracts\RoleService;
 use App\Services\Contracts\UserService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends BaseController
 {
@@ -123,5 +125,33 @@ class UserController extends BaseController
         $this->userService->destroyUserById($user_id);
         return redirect()->route('admin.user.index')
             ->with('success', __('alert.delete.success', ['attribute' => __('global.users.user')]));
+    }
+
+    /**
+     * Show update form profile
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    final public function getFormUpdateProfile(): View
+    {
+        $profile = Auth::user();
+        $roles = $this->roleService->getListRoles();
+        return view('backend.users.profile', compact('profile', 'roles'));
+    }
+
+    /**
+     * Handle logic for update profile
+     *
+     * @param  \App\Http\Requests\UpdateProfileRequest  $request
+     *
+     * @return RedirectResponse
+     */
+    final public function updateProfile(UpdateProfileRequest $request): RedirectResponse
+    {
+        $user_id = Auth::id();
+        $this->userService->updateUserInfoById($user_id, $request);
+        return redirect()->back()
+            ->with('success', __('alert.update.success',
+                ['attribute' => __('global.users.user')]));
     }
 }

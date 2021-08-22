@@ -76,8 +76,26 @@ class UserServiceImpl implements UserService
      */
     final public function updateUserInfoById(int $user_id, object $request): void
     {
-        $data = $request->all();
+        $data = $this->getClientRequestData($request);
         $this->repo->findAndUpdate($user_id, $data);
+    }
+
+    /**
+     * Get client request data
+     *
+     * @param  object  $request
+     *
+     * @return array
+     */
+    private function getClientRequestData(object $request): array
+    {
+        $password = $request->password;
+        if (blank($password)) {
+            $data = $request->all();
+        } else {
+            $data = array_merge($request->all(), ['password' => bcrypt($password)]);
+        }
+        return $data;
     }
 
     /**
