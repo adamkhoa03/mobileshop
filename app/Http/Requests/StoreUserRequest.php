@@ -34,9 +34,9 @@ class StoreUserRequest extends FormRequest
             'avatar' => 'mimes: jpg,jpeg,png',
             'password' => 'required|max:15',
             'phone' => 'max:15',
-            'role'=>'required',
-            'status'=>'required',
-            'gender'=>'required',
+            'role' => 'required',
+            'status' => 'required',
+            'gender' => 'required',
         ];
     }
 }
