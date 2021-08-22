@@ -145,9 +145,10 @@
                         </div>
 
                         <div class="card-body text-center">
-                            <form method="post" action=""
+                            <form method="post" action="{{route('admin.user.profile.avatar')}}"
                                   enctype="multipart/form-data">
                                 @csrf
+                                @method('put')
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <input name="name" value="{{$profile->name}}" hidden/>

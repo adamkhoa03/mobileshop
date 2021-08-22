@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Constants\App;
+use App\Http\Requests\AvatarUploadRequest;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\UpdateUserRequest;
@@ -153,5 +154,22 @@ class UserController extends BaseController
         return redirect()->back()
             ->with('success', __('alert.update.success',
                 ['attribute' => __('global.users.user')]));
+    }
+
+    /**
+     * Handle action for update avatar
+     *
+     * @param  \App\Http\Requests\AvatarUploadRequest  $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    final public function updateAvatar(AvatarUploadRequest $request): RedirectResponse
+    {
+        $slugOfImage = Auth::user()->name;
+        $image = $this->getImageUploadName($request, $slugOfImage, App::PATH_OF_AVATAR_UPLOAD);
+        $this->userService->updateAvatar($image);
+        return redirect()->route('admin.user.profile')
+            ->with('success', __('alert.update.success',
+                ['attribute' => __('global.avatar')]));
     }
 }
