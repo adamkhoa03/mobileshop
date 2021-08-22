@@ -7,7 +7,7 @@ return [
     ],
     'status' => [
         'activated' => 'Activated',
-        'deactivated' => 'Deactivated',
+        'deactivated' => 'Disabled',
     ],
     'http_exception' => [
         'not_found' => 'The :attribute Not Found!',

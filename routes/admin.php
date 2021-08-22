@@ -21,6 +21,6 @@ Route::redirect('/admin', '/login');
 Auth::routes(['register' => 'false', 'reset' => 'false', 'confirm' => 'false']);
 //Admin manager
 Route::group(['as' => 'admin.', 'middleware' => ['auth', 'checkDisableAccount']], function () {
-    Route::get('user/deactivated', [UserController::class, 'showListDeactivateUsers'])->name('user.deactivated');
+    Route::get('user/disabled', [UserController::class, 'showListDeactivateUsers'])->name('user.deactivated');
     Route::resource('user', UserController::class);
 });
