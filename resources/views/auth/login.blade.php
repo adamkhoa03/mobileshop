@@ -23,9 +23,6 @@
             @if($errors->first())
                 <div class="text-danger font-weight-bold mb-4">{{$errors->first()}}</div>
             @endif
-            @if(session('danger'))
-                <div class="text-danger font-weight-bold mb-4">{{session('danger')}}</div>
-            @endif
             <div class="input-div one">
                 <div class="i">
                     <i class="fas fa-user"></i>
