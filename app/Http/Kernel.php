@@ -2,7 +2,9 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\AccountAccess;
 use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\DisableAccount;
 use App\Http\Middleware\EncryptCookies;
 use App\Http\Middleware\PreventRequestsDuringMaintenance;
 use App\Http\Middleware\RedirectIfAuthenticated;
@@ -84,5 +86,6 @@ class Kernel extends HttpKernel
         'signed' => ValidateSignature::class,
         'throttle' => ThrottleRequests::class,
         'verified' => EnsureEmailIsVerified::class,
+        'checkDisableAccount' => DisableAccount::class,
     ];
 }
