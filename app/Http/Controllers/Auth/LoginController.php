@@ -68,4 +68,15 @@ class LoginController extends Controller
         ];
         return Auth::attempt($attempt);
     }
+
+    /**
+     * Handle logout
+     *
+     * @return string
+     */
+    final public function loggedOut(): string
+    {
+        Auth::logout();
+        return redirect('login');
+    }
 }

@@ -18,16 +18,14 @@
         </a>
 
         <!-- item-->
-        <form method="post" action="">
+        <form method="post" action="{{route('logout')}}">
             @csrf
-            @method('put')
+            @method('post')
             <button type="submit" class="dropdown-item notify-item">
                 <i class="fas fa-power-off"></i>
                 <span>Logout</span>
             </button>
 
-
-            </a>
         </form>
     </div>
 </li>
