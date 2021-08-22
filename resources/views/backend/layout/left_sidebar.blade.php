@@ -13,7 +13,7 @@
                 </li>
 
                 <li class="submenu">
-                    <a id="user">
+                    <a @yield('user.active') id="user">
                         <i class="fas fa-user"></i>
                         <span> Users </span>
                         <span class="menu-arrow"></span>

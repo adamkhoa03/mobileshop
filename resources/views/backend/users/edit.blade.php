@@ -12,10 +12,10 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="breadcrumb-holder">
-                        <h1 class="main-title float-left">User Profile</h1>
+                        <h1 class="main-title float-left">User Information</h1>
                         <ol class="breadcrumb float-right">
                             <li class="breadcrumb-item">Home</li>
-                            <li class="breadcrumb-item active">Profile</li>
+                            <li class="breadcrumb-item active">User Information</li>
                         </ol>
                         <div class="clearfix"></div>
                     </div>
@@ -107,7 +107,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <hr>
-                                        <button type="submit" class="btn btn-primary">Edit profile</button>
+                                        <button type="submit" class="btn btn-primary">Update</button>
                                     </div>
                                 </div>
 
