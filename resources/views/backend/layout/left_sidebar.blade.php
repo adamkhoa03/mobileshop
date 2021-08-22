@@ -6,13 +6,13 @@
 
             <ul>
                 <li class="submenu">
-                    <a href="">
+                    <a @yield('dashboard.active') href="{{route('admin.dashboard.index')}}">
                         <i class="fas fa-bars"></i>
                         <span> Dashboard </span>
                     </a>
                 </li>
 
-                <li class="submenu">
+                <li class="submenu" style="cursor: pointer">
                     <a @yield('user.active') id="user">
                         <i class="fas fa-user"></i>
                         <span> Users </span>
