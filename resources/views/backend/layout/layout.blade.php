@@ -77,7 +77,7 @@
 <!-- App js -->
 <script src="js/admin.js"></script>
 
-</div>
+
 <!-- END main -->
 
 <!-- BEGIN Java Script for this page -->
