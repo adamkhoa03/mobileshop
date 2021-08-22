@@ -22,12 +22,12 @@
                         <li @yield('user.'.__('global.status.activated')) >
                             <a @yield('user.'.__('global.status.activated'))
                                href="{{route('admin.user.index')}}">
-                                <span> Activated </span>
+                                <span> {{__('global.status.activated')}} </span>
                             </a>
                         </li>
                         <li @yield('user.'.__('global.status.deactivated'))>
                             <a @yield('user.'.__('global.status.deactivated'))
-                               href="{{route('admin.user.deactivated')}}"><span> Deactivated </span></a>
+                               href="{{route('admin.user.deactivated')}}"><span> {{__('global.status.deactivated')}} </span></a>
                         </li>
                     </ul>
                 </li>
