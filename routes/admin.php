@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['as' => 'admin.'], function () {
+
+Route::redirect('/home', 'user');
+Route::redirect('/admin', '/login');
+Auth::routes(['register' => 'false', 'reset' => 'false', 'confirm' => 'false']);
+//Admin manager
+Route::group(['as' => 'admin.', 'middleware' => 'auth'], function () {
     Route::get('user/deactivated', [UserController::class, 'showListDeactivateUsers'])->name('user.deactivated');
     Route::resource('user', UserController::class);
 });

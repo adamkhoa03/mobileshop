@@ -4,8 +4,76 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "257518aea015ec4b77e4ddab587b2594",
+    "content-hash": "1af2c17a8d93ade3195b3d6af5a91405",
     "packages": [
+        {
+            "name": "adamkhoa03/eloquent-repository",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adamkhoa03/eloquent-repository.git",
+                "reference": "0c677fb4596932afd60c0ebbc54f6c4642dc38a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adamkhoa03/eloquent-repository/zipball/0c677fb4596932afd60c0ebbc54f6c4642dc38a2",
+                "reference": "0c677fb4596932afd60c0ebbc54f6c4642dc38a2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^6.0|^7.0|^8.0",
+                "illuminate/container": "^6.0|^7.0|^8.0",
+                "illuminate/contracts": "^6.0|^7.0|^8.0",
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "illuminate/support": "^6.0|^7.0|^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Orkhanahmadov\\EloquentRepository\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Orkhanahmadov\\EloquentRepository\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Minh Khoa",
+                    "email": "adamkhoa03@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Eloquent Repository for Laravel",
+            "homepage": "https://github.com/orkhanahmadov/eloquent-repository",
+            "keywords": [
+                "eloquent",
+                "eloquent-repository",
+                "eloquent-repository-generator",
+                "laravel-repository",
+                "model",
+                "repository",
+                "repository-generator"
+            ],
+            "support": {
+                "issues": "https://github.com/adamkhoa03/eloquent-repository/issues",
+                "source": "https://github.com/adamkhoa03/eloquent-repository/tree/master"
+            },
+            "time": "2021-08-22T07:17:26+00:00"
+        },
         {
             "name": "asm89/stack-cors",
             "version": "v2.0.3",
@@ -1183,6 +1251,64 @@
             "time": "2021-03-02T16:53:12+00:00"
         },
         {
+            "name": "laravel/ui",
+            "version": "v3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/ui.git",
+                "reference": "07d725813350c695c779382cbd6dac0ab8665537"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/ui/zipball/07d725813350c695c779382cbd6dac0ab8665537",
+                "reference": "07d725813350c695c779382cbd6dac0ab8665537",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^8.42",
+                "illuminate/filesystem": "^8.42",
+                "illuminate/support": "^8.42",
+                "illuminate/validation": "^8.42",
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Ui\\UiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Ui\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "auth-backend/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Laravel UI utilities and presets.",
+            "keywords": [
+                "laravel",
+                "ui"
+            ],
+            "support": {
+                "source": "https://github.com/laravel/ui/tree/v3.3.0"
+            },
+            "time": "2021-05-25T16:45:33+00:00"
+        },
+        {
             "name": "league/commonmark",
             "version": "2.0.2",
             "source": {
@@ -1982,79 +2108,6 @@
                 "source": "https://github.com/opis/closure/tree/3.6.2"
             },
             "time": "2021-04-09T13:42:10+00:00"
-        },
-        {
-            "name": "orkhanahmadov/eloquent-repository",
-            "version": "2.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/orkhanahmadov/eloquent-repository.git",
-                "reference": "2e678a4f2c70377362d06a8dcab673b47baee21c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/orkhanahmadov/eloquent-repository/zipball/2e678a4f2c70377362d06a8dcab673b47baee21c",
-                "reference": "2e678a4f2c70377362d06a8dcab673b47baee21c",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "^6.0|^7.0|^8.0",
-                "illuminate/container": "^6.0|^7.0|^8.0",
-                "illuminate/contracts": "^6.0|^7.0|^8.0",
-                "illuminate/database": "^6.0|^7.0|^8.0",
-                "illuminate/support": "^6.0|^7.0|^8.0",
-                "php": "^7.3|^8.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^4.0|^5.0|^6.0",
-                "phpunit/phpunit": "^8.0|^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Orkhanahmadov\\EloquentRepository\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Orkhanahmadov\\EloquentRepository\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Orkhan Ahmadov",
-                    "email": "ahmadov90@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Eloquent Repository for Laravel",
-            "homepage": "https://github.com/orkhanahmadov/eloquent-repository",
-            "keywords": [
-                "eloquent",
-                "eloquent-repository",
-                "eloquent-repository-generator",
-                "laravel-repository",
-                "model",
-                "repository",
-                "repository-generator"
-            ],
-            "support": {
-                "issues": "https://github.com/orkhanahmadov/eloquent-repository/issues",
-                "source": "https://github.com/orkhanahmadov/eloquent-repository/tree/2.4.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/orkhanahmadov",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-12-16T08:10:56+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -7878,11 +7931,13 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "adamkhoa03/eloquent-repository": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3|^8.0"
+        "php": "7.4.19"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"

@@ -69,18 +69,6 @@ class UserServiceImpl implements UserService
     }
 
     /**
-     * Handle logic for get user info by id
-     *
-     * @param  int  $user_id
-     *
-     * @return object
-     */
-    final public function getUserInfoById(int $user_id): object
-    {
-        return $this->repo->find($user_id);
-    }
-
-    /**
      * Update user info from request by id
      *
      * @param  int     $user_id
@@ -106,5 +94,17 @@ class UserServiceImpl implements UserService
                 ['attribute' => __('global.users.user')]));
         }
         $this->repo->findAndDelete($user_id);
+    }
+
+    /**
+     * Handle logic for get user info by id
+     *
+     * @param  int  $user_id
+     *
+     * @return object
+     */
+    final public function getUserInfoById(int $user_id): object
+    {
+        return $this->repo->find($user_id);
     }
 }

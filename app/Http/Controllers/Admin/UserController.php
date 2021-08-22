@@ -46,16 +46,6 @@ class UserController extends BaseController
     }
 
     /**
-     * Defined index page name
-     *
-     * @return string
-     */
-    final public function getIndexPageName(): string
-    {
-        return 'backend.users.index';
-    }
-
-    /**
      * Show deactivated users
      *
      * @return \Illuminate\Contracts\View\View
@@ -66,6 +56,16 @@ class UserController extends BaseController
         $users = $this->userService->getListDeactivatedUser();
         $users_status = __('global.status.deactivated');
         return view($this->getIndexPageName(), compact('users', 'roles', 'users_status'));
+    }
+
+    /**
+     * Defined index page name
+     *
+     * @return string
+     */
+    final public function getIndexPageName(): string
+    {
+        return 'backend.users.index';
     }
 
     /**
