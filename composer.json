@@ -5,13 +5,13 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "7.4",
+        "php": "7.4.19",
+        "adamkhoa03/eloquent-repository": "dev-master",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
-        "laravel/tinker": "^2.5",
-        "orkhanahmadov/eloquent-repository": "^2.4"
+        "laravel/tinker": "^2.5"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
