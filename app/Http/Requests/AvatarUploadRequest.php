@@ -24,7 +24,7 @@ class AvatarUploadRequest extends FormRequest
     public function rules()
     {
         return [
-            'avatar'=>'mimes:jpg, jpeg, png, gif'
+            'avatar' => 'mimes:jpg, jpeg, png, gif'
         ];
     }
 }
