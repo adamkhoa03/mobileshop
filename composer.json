@@ -6,7 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "7.4.19",
-        "adamkhoa03/eloquent-repository": "dev-master",
+        "adamkhoa03/eloquent-repository": "^1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.54",

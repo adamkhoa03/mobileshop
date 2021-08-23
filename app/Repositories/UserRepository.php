@@ -2,10 +2,15 @@
 
 namespace App\Repositories;
 
+use Adamkhoa03\EloquentRepository\EloquentRepository;
 use App\Constants\App;
 use App\Models\User;
-use Orkhanahmadov\EloquentRepository\EloquentRepository;
 
+/**
+ * UserRepository interact with users table
+ *
+ * @package App\Repositories
+ */
 class UserRepository extends EloquentRepository
 {
     protected $entity = User::class;

@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1af2c17a8d93ade3195b3d6af5a91405",
+    "content-hash": "178112fcc5c12e854a3d1fbe816f3694",
     "packages": [
         {
             "name": "adamkhoa03/eloquent-repository",
-            "version": "dev-master",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/adamkhoa03/eloquent-repository.git",
-                "reference": "0c677fb4596932afd60c0ebbc54f6c4642dc38a2"
+                "reference": "b575a850e4afba8c6b3105ae93050c53c071bf17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/adamkhoa03/eloquent-repository/zipball/0c677fb4596932afd60c0ebbc54f6c4642dc38a2",
-                "reference": "0c677fb4596932afd60c0ebbc54f6c4642dc38a2",
+                "url": "https://api.github.com/repos/adamkhoa03/eloquent-repository/zipball/b575a850e4afba8c6b3105ae93050c53c071bf17",
+                "reference": "b575a850e4afba8c6b3105ae93050c53c071bf17",
                 "shasum": ""
             },
             "require": {
@@ -32,18 +32,17 @@
                 "orchestra/testbench": "^4.0|^5.0|^6.0",
                 "phpunit/phpunit": "^8.0|^9.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Orkhanahmadov\\EloquentRepository\\ServiceProvider"
+                        "Adamkhoa03\\EloquentRepository\\ServiceProvider"
                     ]
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Orkhanahmadov\\EloquentRepository\\": "src"
+                    "Adamkhoa03\\EloquentRepository\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -52,13 +51,18 @@
             ],
             "authors": [
                 {
+                    "name": "Orkhan Ahmadov",
+                    "email": "ahmadov90@gmail.com",
+                    "role": "Developer"
+                },
+                {
                     "name": "Minh Khoa",
                     "email": "adamkhoa03@gmail.com",
                     "role": "Developer"
                 }
             ],
             "description": "Eloquent Repository for Laravel",
-            "homepage": "https://github.com/orkhanahmadov/eloquent-repository",
+            "homepage": "https://github.com/adamkhoa03/eloquent-repository",
             "keywords": [
                 "eloquent",
                 "eloquent-repository",
@@ -70,9 +74,9 @@
             ],
             "support": {
                 "issues": "https://github.com/adamkhoa03/eloquent-repository/issues",
-                "source": "https://github.com/adamkhoa03/eloquent-repository/tree/master"
+                "source": "https://github.com/adamkhoa03/eloquent-repository/tree/v1.0"
             },
-            "time": "2021-08-22T07:17:26+00:00"
+            "time": "2021-08-23T15:51:23+00:00"
         },
         {
             "name": "asm89/stack-cors",
@@ -7931,9 +7935,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "adamkhoa03/eloquent-repository": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
